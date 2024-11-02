@@ -109,7 +109,7 @@ const Contact = () => {
                             {
                                 Icon: Mail,
                                 title: "Email Us",
-                                content: "kabir.khan@sapmate.com",
+                                content: "sadaf.salam@sapmate.com",
                                 gradient: "from-purple-400/90 to-purple-600/90",
                             },
                         ].map((item, index) => (
