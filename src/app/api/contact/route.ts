@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import nodemailer from "nodemailer";
+// import nodemailer from "nodemailer";
 import { z } from "zod";
 import User from "@/models/User";
 import connectToDatabase from "@/lib/mongoose";
@@ -15,21 +15,21 @@ const contactFormSchema = z.object({
     message: z.string().min(1, "Message must be at least 10 characters"),
 });
 
-const emailConfig = {
-    from: process.env.SMTP_FROM_EMAIL,
-    to: "gpampa138@gmail.com",
-    cc: "parambrataghosh26@gmail.com",
-};
+// const emailConfig = {
+//     from: process.env.SMTP_FROM_EMAIL,
+//     to: "gpampa138@gmail.com",
+//     cc: "parambrataghosh26@gmail.com",
+// };
 
-const transporter = nodemailer.createTransport({
-    host: process.env.SMTP_HOST,
-    port: parseInt(process.env.SMTP_PORT || "587"),
-    secure: process.env.SMTP_PORT == "465" ? true : false,
-    auth: {
-        user: process.env.SMTP_USER,
-        pass: process.env.SMTP_PASSWORD,
-    },
-});
+// const transporter = nodemailer.createTransport({
+//     host: process.env.SMTP_HOST,
+//     port: parseInt(process.env.SMTP_PORT || "587"),
+//     secure: process.env.SMTP_PORT == "465" ? true : false,
+//     auth: {
+//         user: process.env.SMTP_USER,
+//         pass: process.env.SMTP_PASSWORD,
+//     },
+// });
 
 export async function POST(req: NextRequest) {
     try {
