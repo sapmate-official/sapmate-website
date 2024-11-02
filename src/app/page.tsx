@@ -1,101 +1,218 @@
-import Image from "next/image";
+"use client";
+import React, { useState, useEffect } from "react";
+import { motion } from "framer-motion";
+import { ChevronDown } from "lucide-react";
+import AboutSection from "@/components/About";
+import { VisibilityState } from "@/interface/Home";
+import Contact from "@/components/Contact";
+import Stats from "@/components/Stats";
+import { LazyImage } from "@/lib/LazyImage";
 
-export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+export default function Landing() {
+    const [scrollY, setScrollY] = useState(0);
+    const [isVisible, setIsVisible] = useState<VisibilityState>({});
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+    useEffect(() => {
+        const handleScroll = () => {
+            setScrollY(window.scrollY);
+            document.querySelectorAll("[data-animate]").forEach((elem) => {
+                const rect = elem.getBoundingClientRect();
+                const animateValue = elem.getAttribute("data-animate");
+                if (rect.top <= window.innerHeight * 0.8 && animateValue) {
+                    setIsVisible((prev) => ({
+                        ...prev,
+                        [animateValue]: true,
+                    }));
+                }
+            });
+        };
+
+        window.addEventListener("scroll", handleScroll);
+        handleScroll();
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
+
+    const handleScrollTo = (elementId: string) => {
+        const element = document.getElementById(elementId);
+        if (element) {
+            const elementPosition =
+                element.getBoundingClientRect().top + window.scrollY;
+            const startPosition = window.scrollY;
+            const distance = elementPosition - startPosition;
+
+            const duration = 1500; // Animation duration in ms
+            const startTime = performance.now();
+
+            function easeInOutCubic(t: number): number {
+                return t < 0.5
+                    ? 4 * t * t * t
+                    : 1 - Math.pow(-2 * t + 2, 3) / 2;
+            }
+
+            function animate(currentTime: number) {
+                const elapsed = currentTime - startTime;
+                const progress = Math.min(elapsed / duration, 1);
+
+                const easeProgress = easeInOutCubic(progress);
+                window.scrollTo(0, startPosition + distance * easeProgress);
+
+                if (progress < 1) {
+                    requestAnimationFrame(animate);
+                }
+            }
+
+            requestAnimationFrame(animate);
+        }
+    };
+
+    return (
+        <div className="min-h-screen bg-gradient-to-b from-white to-blue-50">
+            <div className="relative h-screen overflow-hidden">
+                <div
+                    className="absolute inset-0 transition-transform duration-500 ease-out"
+                    style={{ transform: `translateY(${scrollY * 0.5}px)` }}
+                >
+                    <LazyImage
+                        src="https://res.cloudinary.com/dwxm42izp/image/upload/v1730538183/ulove1t1e6szhyrwasdr.jpg"
+                        alt="SAP Professional Training"
+                        className="w-full h-full object-cover"
+                        width={800}
+                        height={600}
+                    />
+                    <div className="absolute inset-0 bg-black bg-opacity-60" />
+                </div>
+
+                <nav
+                    className="fixed w-full z-50 transition-all duration-500"
+                    style={{
+                        backgroundColor:
+                            scrollY > 50 ? "rgba(0, 0, 0, 0.8)" : "transparent",
+                        backdropFilter: scrollY > 50 ? "blur(10px)" : "none",
+                    }}
+                >
+                    <div className="container mx-auto px-6 py-4">
+                        <div className="flex justify-between items-center">
+                            <motion.div
+                                initial={{ x: -100, opacity: 0 }}
+                                animate={{ x: 0, opacity: 1 }}
+                                transition={{ duration: 0.8 }}
+                                className="flex items-center space-x-2"
+                            >
+                                <span className="text-2xl font-bold text-white">
+                                    SAPMATE
+                                </span>
+                            </motion.div>
+
+                            <motion.div
+                                initial={{ x: 100, opacity: 0 }}
+                                animate={{ x: 0, opacity: 1 }}
+                                transition={{ duration: 0.8 }}
+                                className="hidden md:flex space-x-8"
+                            >
+                                {["about", "contact"].map((item) => (
+                                    <button
+                                        key={item}
+                                        onClick={() => handleScrollTo(item)}
+                                        className="text-white font-medium hover:text-blue-400 transition-colors cursor-pointer"
+                                    >
+                                        {item.charAt(0).toUpperCase() +
+                                            item.slice(1)}
+                                    </button>
+                                ))}
+                            </motion.div>
+                        </div>
+                    </div>
+                </nav>
+
+                <div className="relative z-10 flex items-center justify-center h-full px-6">
+                    <motion.div
+                        initial={{ y: 100, opacity: 0 }}
+                        animate={{ y: 0, opacity: 1 }}
+                        transition={{ duration: 1, delay: 0.5 }}
+                        className="text-center max-w-4xl"
+                    >
+                        <h1 className="text-5xl md:text-7xl font-bold text-white mb-8 leading-tight">
+                            Transform Your Career with
+                            <span className="text-blue-400">
+                                {" "}
+                                SAP Excellence
+                            </span>
+                        </h1>
+                        <p className="text-xl md:text-2xl text-gray-200 mb-12 leading-relaxed">
+                            Join India&apos;s premier SAP training institute and
+                            learn from industry experts
+                        </p>
+                        <motion.button
+                            whileHover={{ scale: 1.05 }}
+                            onClick={() => handleScrollTo("contact")}
+                            className="bg-blue-600 text-white px-8 py-4 rounded-full font-semibold text-lg shadow-lg hover:shadow-xl transition-all duration-300"
+                        >
+                            Start Your Journey
+                        </motion.button>
+                    </motion.div>
+                </div>
+
+                <motion.div
+                    animate={{ y: [0, 10, 0] }}
+                    transition={{ repeat: Infinity, duration: 1.5 }}
+                    className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
+                >
+                    <ChevronDown className="text-white w-8 h-8" />
+                </motion.div>
+            </div>
+
+            {/* <div className="py-20 bg-white" data-animate="stats">
+                <div className="container mx-auto px-6">
+                    <div className={`grid md:grid-cols-3 gap-12 max-w-5xl mx-auto opacity-0 translate-y-8 transition-all duration-1000 ${
+                        isVisible.stats ? "opacity-100 translate-y-0" : ""
+                    }`}>
+                        {[
+                            { number: "1000+", label: "Successful Students" },
+                            { number: "92%", label: "Placement Rate" },
+                            { number: "4.8/5", label: "Student Rating" }
+                        ].map((stat, index) => (
+                            <div
+                                key={index}
+                                className="text-center p-8 rounded-2xl bg-gradient-to-br from-blue-50 to-white shadow-lg hover:shadow-xl transition-all duration-300"
+                                style={{ transitionDelay: `${index * 200}ms` }}
+                            >
+                                <h3 className="text-4xl font-bold text-blue-600 mb-4">
+                                    {stat.number}
+                                </h3>
+                                <p className="text-gray-600 text-lg">
+                                    {stat.label}
+                                </p>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </div> */}
+            <Stats />
+            {/* About Section */}
+            <div id="about" className="py-20 bg-gray-50" data-animate="about">
+                <AboutSection isVisible={isVisible} />
+            </div>
+
+            {/* Contact Form */}
+            <Contact />
+
+            <footer className="bg-gradient-to-r from-blue-600 to-blue-700 text-white py-16">
+                <div className="container mx-auto px-6">
+                    <div className="grid md:grid-cols-2 gap-12">
+                        <div className="transform transition-all duration-300 hover:translate-x-2">
+                            <h3 className="text-3xl font-bold mb-4">SAPMATE</h3>
+                            <p className="text-blue-100 text-lg">
+                                Empowering careers through expert SAP training
+                            </p>
+                        </div>
+                        <div className="text-right">
+                            <p className="text-blue-100">
+                                © 2024 SAPMATE. All rights reserved.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </footer>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
-  );
+    );
 }
