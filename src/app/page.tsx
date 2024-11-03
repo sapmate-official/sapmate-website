@@ -7,6 +7,8 @@ import { VisibilityState } from "@/interface/Home";
 import Contact from "@/components/Contact";
 import Stats from "@/components/Stats";
 import { LazyImage } from "@/lib/LazyImage";
+import WhatsAppButton from "@/components/WhatsappButton";
+import Header from "@/components/Header";
 
 export default function Landing() {
     const [scrollY, setScrollY] = useState(0);
@@ -82,47 +84,7 @@ export default function Landing() {
                     <div className="absolute inset-0 bg-black bg-opacity-60" />
                 </div>
 
-                <nav
-                    className="fixed w-full z-50 transition-all duration-500"
-                    style={{
-                        backgroundColor:
-                            scrollY > 50 ? "rgba(0, 0, 0, 0.8)" : "transparent",
-                        backdropFilter: scrollY > 50 ? "blur(10px)" : "none",
-                    }}
-                >
-                    <div className="container mx-auto px-6 py-4">
-                        <div className="flex justify-between items-center">
-                            <motion.div
-                                initial={{ x: -100, opacity: 0 }}
-                                animate={{ x: 0, opacity: 1 }}
-                                transition={{ duration: 0.8 }}
-                                className="flex items-center space-x-2"
-                            >
-                                <span className="text-2xl font-bold text-white">
-                                    SAPMATE
-                                </span>
-                            </motion.div>
-
-                            <motion.div
-                                initial={{ x: 100, opacity: 0 }}
-                                animate={{ x: 0, opacity: 1 }}
-                                transition={{ duration: 0.8 }}
-                                className="hidden md:flex space-x-8"
-                            >
-                                {["about", "contact"].map((item) => (
-                                    <button
-                                        key={item}
-                                        onClick={() => handleScrollTo(item)}
-                                        className="text-white font-medium hover:text-blue-400 transition-colors cursor-pointer"
-                                    >
-                                        {item.charAt(0).toUpperCase() +
-                                            item.slice(1)}
-                                    </button>
-                                ))}
-                            </motion.div>
-                        </div>
-                    </div>
-                </nav>
+                <Header handleScrollTo={handleScrollTo} />
 
                 <div className="relative z-10 flex items-center justify-center h-full px-6">
                     <motion.div
@@ -150,6 +112,7 @@ export default function Landing() {
                             Start Your Journey
                         </motion.button>
                     </motion.div>
+                    {/* <Hero handleScrollTo={handleScrollTo} /> */}
                 </div>
 
                 <motion.div
@@ -216,3 +179,80 @@ export default function Landing() {
         </div>
     );
 }
+
+const Hero = ({ handleScrollTo }: { handleScrollTo: (elementId: string) => void }) => {
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  useEffect(() => {
+    // Set a flag after initial render
+    const timer = requestAnimationFrame(() => {
+      setIsLoaded(true);
+    });
+    return () => cancelAnimationFrame(timer);
+  }, []);
+
+  // Initial static render for faster LCP
+  if (!isLoaded) {
+    return (
+      <div className="text-center max-w-4xl">
+        <h1 className="text-5xl md:text-7xl font-bold text-white mb-8 leading-tight">
+          Transform Your Career with
+          <span className="text-blue-400"> SAP Excellence</span>
+        </h1>
+        <p className="text-xl md:text-2xl text-gray-200 mb-12 leading-relaxed">
+          Join India&apos;s premier SAP training institute and learn from industry experts
+        </p>
+        <button 
+          onClick={() => handleScrollTo("contact")}
+          className="bg-blue-600 text-white px-8 py-4 rounded-full font-semibold text-lg shadow-lg hover:shadow-xl transition-all duration-300"
+        >
+          Start Your Journey
+        </button>
+      </div>
+    );
+  }
+
+  // Animated version after initial paint
+  return (
+    <motion.div
+      initial={{ opacity: 1 }}
+      animate={{ opacity: 1 }}
+      className="text-center max-w-4xl"
+    >
+      <motion.h1 
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.5 }}
+        className="text-5xl md:text-7xl font-bold text-white mb-8 leading-tight"
+      >
+        Transform Your Career with
+        <motion.span 
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+          className="text-blue-400"
+        >
+          {" "}SAP Excellence
+        </motion.span>
+      </motion.h1>
+      <motion.p 
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.5, delay: 0.3 }}
+        className="text-xl md:text-2xl text-gray-200 mb-12 leading-relaxed"
+      >
+        Join India&apos;s premier SAP training institute and learn from industry experts
+      </motion.p>
+      <motion.button
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.5, delay: 0.4 }}
+        whileHover={{ scale: 1.05 }}
+        onClick={() => handleScrollTo("contact")}
+        className="bg-blue-600 text-white px-8 py-4 rounded-full font-semibold text-lg shadow-lg hover:shadow-xl transition-all duration-300"
+      >
+        Start Your Journey
+      </motion.button>
+    </motion.div>
+  );
+};

@@ -6,6 +6,7 @@ import {
     Loader2,
     ArrowRight,
     CheckCircle,
+    MessageCircle,
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useToast } from "@/hooks/use-toast";
@@ -15,8 +16,7 @@ type ContactForm = {
     email: string;
     phone: string;
     message: string;
-  };
-
+};
 
 const Contact = () => {
     const { toast } = useToast();
@@ -30,7 +30,9 @@ const Contact = () => {
         message: "",
     });
 
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const handleChange = (
+        e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    ) => {
         const { name, value } = e.target;
         setFormData((prev) => ({
             ...prev,
@@ -71,13 +73,13 @@ const Contact = () => {
             }, 2000);
         } catch (error: { message: string } | unknown) {
             console.log(error);
-                toast({
-                    title: "Error",
-                    description: "Failed to send message, Try with contact information given beside.",
-                    variant: "destructive",
-                    duration: 5000,
-                });
-        
+            toast({
+                title: "Error",
+                description:
+                    "Failed to send message, Try with contact information given beside.",
+                variant: "destructive",
+                duration: 5000,
+            });
         } finally {
             setLoading(false);
         }
@@ -85,8 +87,22 @@ const Contact = () => {
 
     const progressWidth = Object.values(formData).filter(Boolean).length * 25;
 
+    const handlePhoneClick = () => {
+        window.location.href = "tel:+919830334496";
+    };
+
+    const handleEmailClick = () => {
+        window.location.href = "mailto:sadaf.salam@sapmate.com";
+    };
+
+    const handleWhatsAppClick = () => {
+        window.location.href = "https://wa.me/919830334496";
+    };
     return (
-        <div id="contact" className="py-20 bg-gradient-to-br from-white to-blue-50">
+        <div
+            id="contact"
+            className="py-20 bg-gradient-to-br from-white to-blue-50"
+        >
             <div className="container mx-auto px-6">
                 <h2 className="text-4xl font-bold text-center mb-16 text-gray-800">
                     Let&apos;s Connect
@@ -105,24 +121,32 @@ const Contact = () => {
                                 title: "Call Us",
                                 content: "+91 9830334496",
                                 gradient: "from-blue-400/90 to-blue-600/90",
+                                onClick: handlePhoneClick,
                             },
                             {
                                 Icon: Mail,
                                 title: "Email Us",
                                 content: "sadaf.salam@sapmate.com",
                                 gradient: "from-purple-400/90 to-purple-600/90",
+                                onClick: handleEmailClick,
+                            },
+                            {
+                                Icon: MessageCircle,
+                                title: "WhatsApp",
+                                content: "+91 9830334496",
+                                gradient: "from-green-400/90 to-green-600/90",
+                                onClick: handleWhatsAppClick,
                             },
                         ].map((item, index) => (
                             <motion.div
                                 key={index}
                                 whileHover={{ scale: 1.02, y: -5 }}
-                                className="relative overflow-hidden group rounded-xl shadow-lg"
+                                className="relative overflow-hidden group rounded-xl shadow-lg cursor-pointer"
+                                onClick={item.onClick}
                             >
                                 <div
                                     className={`absolute inset-0 bg-gradient-to-r ${item.gradient} opacity-0 group-hover:opacity-100 transition-all duration-300`}
                                 />
-
-                                {/* Content container */}
                                 <div className="relative p-6 bg-white group-hover:bg-opacity-0 transition-all duration-300">
                                     <div className="flex items-center relative z-10">
                                         <item.Icon className="w-6 h-6 mr-4 text-blue-600 group-hover:text-white transition-colors duration-300" />
