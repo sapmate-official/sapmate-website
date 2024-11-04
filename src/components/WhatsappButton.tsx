@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { MessageCircle } from "lucide-react";
+import Image from "next/image";
 import dynamic from "next/dynamic";
 
-// Dynamically import motion components
 const MotionDiv = dynamic(
     () => import("framer-motion").then((mod) => mod.motion.div),
     { ssr: false, loading: () => null }
@@ -15,12 +14,7 @@ const WhatsAppButton = () => {
 
     useEffect(() => {
         setIsClient(true);
-
-        const readyTimer = setTimeout(() => {
-            setIsAnimated(true);
-        }, 5000);
-
-        return () => clearTimeout(readyTimer);
+        setIsAnimated(true); // Immediately set to animated state
     }, []);
 
     useEffect(() => {
@@ -33,31 +27,16 @@ const WhatsAppButton = () => {
         return () => clearInterval(interval);
     }, [isAnimated]);
 
-    const StaticButton = () => (
-        <div
-            className="cursor-pointer"
-            onClick={() =>
-                (window.location.href = "https://wa.me/919830334496")
-            }
-        >
-            <div className="p-3 rounded-full bg-[#25D366] shadow-md">
-                <MessageCircle className="w-6 h-6 text-white" />
-            </div>
-        </div>
-    );
-
     if (!isClient) return null;
-    if (!isAnimated) return <StaticButton />;
 
     return (
         <MotionDiv
             initial={{ opacity: 1 }}
-            onClick={() =>
-                (window.location.href = "https://wa.me/919830334496")
-            }
+            onClick={() => window.location.href = "https://wa.me/919830334496"}
+            className="pr-4 md:pr-0"
         >
             <MotionDiv
-                className="flex items-center cursor-pointer group"
+                className="flex items-center cursor-pointer group h-12"
                 animate={{
                     width: isExpanded ? "auto" : "48px",
                     backgroundColor: isExpanded ? "white" : "#25D366",
@@ -69,12 +48,8 @@ const WhatsAppButton = () => {
                     boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
                 }}
             >
-                <div
-                    className={`p-3 rounded-full ${
-                        isExpanded ? "bg-[#25D366]" : ""
-                    }`}
-                >
-                    <MessageCircle className="w-6 h-6 text-white" />
+                <div className={`p-3 rounded-full ${isExpanded ? "bg-[#25D366]" : ""}`}>
+                    <Image src="/whatsappicon.png" width={22} height={22} alt="whatsapp" />
                 </div>
                 <MotionDiv
                     animate={{

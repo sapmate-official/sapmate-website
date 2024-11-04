@@ -1,4 +1,3 @@
-// components/Header.tsx
 "use client";
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
@@ -14,13 +13,8 @@ interface ScrollState {
     currentScrollY: number;
 }
 
-// Define allowed parameter types for the throttle function
 type ThrottleableParameter = string | number | boolean | undefined | null | object;
-
-// Define the base function type that can be throttled
 type ThrottleableFunction = (...args: ThrottleableParameter[]) => void;
-
-// Define the throttled function type
 type ThrottledFunction<T extends ThrottleableFunction> = (...args: Parameters<T>) => void;
 
 const Header: React.FC<HeaderProps> = ({ handleScrollTo }) => {
@@ -52,20 +46,16 @@ const Header: React.FC<HeaderProps> = ({ handleScrollTo }) => {
             });
         };
 
-        // Properly typed throttle function
         const throttle = <T extends ThrottleableFunction>(
             func: T,
             limit: number
         ): ThrottledFunction<T> => {
             let inThrottle = false;
-            
             return (...args: Parameters<T>): void => {
                 if (!inThrottle) {
                     func(...args);
                     inThrottle = true;
-                    setTimeout(() => {
-                        inThrottle = false;
-                    }, limit);
+                    setTimeout(() => inThrottle = false, limit);
                 }
             };
         };
@@ -79,9 +69,10 @@ const Header: React.FC<HeaderProps> = ({ handleScrollTo }) => {
 
     return (
         <motion.nav
-            className="fixed w-full z-50 transition-all duration-500"
-            initial={{ y: 0 }}
+            className="fixed w-full z-50 transition-all"
+            initial={{ opacity: 0 }}
             animate={{ 
+                opacity: 1,
                 y: headerState.isVisible ? 0 : -100,
                 backgroundColor: scrollY > 50 ? "rgba(0, 0, 0, 0.8)" : "transparent",
                 backdropFilter: scrollY > 50 ? "blur(10px)" : "none",
@@ -90,10 +81,9 @@ const Header: React.FC<HeaderProps> = ({ handleScrollTo }) => {
         >
             <div className="container mx-auto px-6 py-4">
                 <div className="flex items-center justify-between">
-                    {/* Logo */}
                     <motion.div
-                        initial={{ x: -100, opacity: 0 }}
-                        animate={{ x: 0, opacity: 1 }}
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
                         transition={{ duration: 0.8 }}
                     >
                         <span className="text-2xl font-bold text-white">
@@ -101,13 +91,11 @@ const Header: React.FC<HeaderProps> = ({ handleScrollTo }) => {
                         </span>
                     </motion.div>
 
-                    {/* Navigation and WhatsApp button container */}
                     <div className="flex items-center">
-                        {/* Navigation Links */}
                         <motion.div
-                            initial={{ x: 100, opacity: 0 }}
-                            animate={{ x: 0, opacity: 1 }}
-                            transition={{ duration: 0.8 }}
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            transition={{ duration: 0.5 }}
                             className="hidden md:flex items-center mr-8"
                         >
                             {["about", "contact"].map((item) => (
@@ -121,7 +109,6 @@ const Header: React.FC<HeaderProps> = ({ handleScrollTo }) => {
                             ))}
                         </motion.div>
 
-                        {/* WhatsApp Button */}
                         <div className="relative">
                             <WhatsAppButton />
                         </div>

@@ -6,10 +6,11 @@ import {
     Loader2,
     ArrowRight,
     CheckCircle,
-    MessageCircle,
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useToast } from "@/hooks/use-toast";
+import Image from "next/image";
+
 type ContactForm = {
     [key: string]: string;
     name: string;
@@ -66,7 +67,6 @@ const Contact = () => {
                 duration: 5000,
             });
 
-            // Reset form after 2 seconds
             setTimeout(() => {
                 setFormData({ name: "", email: "", phone: "", message: "" });
                 setSubmitted(false);
@@ -98,6 +98,39 @@ const Contact = () => {
     const handleWhatsAppClick = () => {
         window.location.href = "https://wa.me/919830334496";
     };
+
+    const contactCards = [
+        {
+            icon: <Phone className="w-6 h-6" />,
+            title: "Call Us",
+            content: "+91 9830334496",
+            gradient: "from-blue-400/90 to-blue-600/90",
+            onClick: handlePhoneClick,
+        },
+        {
+            icon: <Mail className="w-6 h-6" />,
+            title: "Email Us",
+            content: "sadaf.salam@sapmate.com",
+            gradient: "from-purple-400/90 to-purple-600/90",
+            onClick: handleEmailClick,
+        },
+        {
+            icon: (
+                <Image
+                    src="/whatsappicon.png"
+                    alt="whatsapp"
+                    width={24}
+                    height={24}
+                    className="w-6 h-6"
+                />
+            ),
+            title: "WhatsApp",
+            content: "+91 9830334496",
+            gradient: "from-green-400/90 to-green-600/90",
+            onClick: handleWhatsAppClick,
+        },
+    ];
+
     return (
         <div
             id="contact"
@@ -115,29 +148,7 @@ const Contact = () => {
                         transition={{ duration: 0.8 }}
                         className="space-y-8"
                     >
-                        {[
-                            {
-                                Icon: Phone,
-                                title: "Call Us",
-                                content: "+91 9830334496",
-                                gradient: "from-blue-400/90 to-blue-600/90",
-                                onClick: handlePhoneClick,
-                            },
-                            {
-                                Icon: Mail,
-                                title: "Email Us",
-                                content: "sadaf.salam@sapmate.com",
-                                gradient: "from-purple-400/90 to-purple-600/90",
-                                onClick: handleEmailClick,
-                            },
-                            {
-                                Icon: MessageCircle,
-                                title: "WhatsApp",
-                                content: "+91 9830334496",
-                                gradient: "from-green-400/90 to-green-600/90",
-                                onClick: handleWhatsAppClick,
-                            },
-                        ].map((item, index) => (
+                        {contactCards.map((item, index) => (
                             <motion.div
                                 key={index}
                                 whileHover={{ scale: 1.02, y: -5 }}
@@ -149,7 +160,9 @@ const Contact = () => {
                                 />
                                 <div className="relative p-6 bg-white group-hover:bg-opacity-0 transition-all duration-300">
                                     <div className="flex items-center relative z-10">
-                                        <item.Icon className="w-6 h-6 mr-4 text-blue-600 group-hover:text-white transition-colors duration-300" />
+                                        <div className="mr-4 text-blue-600 group-hover:text-white transition-colors duration-300">
+                                            {item.icon}
+                                        </div>
                                         <div>
                                             <h3 className="font-bold text-gray-800 group-hover:text-white transition-colors duration-300">
                                                 {item.title}
@@ -163,6 +176,8 @@ const Contact = () => {
                             </motion.div>
                         ))}
                     </motion.div>
+
+                    {/* Contact Form */}
                     <motion.div
                         initial={{ x: 50, opacity: 0 }}
                         whileInView={{ x: 0, opacity: 1 }}
