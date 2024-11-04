@@ -14,6 +14,15 @@ interface ScrollState {
     currentScrollY: number;
 }
 
+// Define allowed parameter types for the throttle function
+type ThrottleableParameter = string | number | boolean | undefined | null | object;
+
+// Define the base function type that can be throttled
+type ThrottleableFunction = (...args: ThrottleableParameter[]) => void;
+
+// Define the throttled function type
+type ThrottledFunction<T extends ThrottleableFunction> = (...args: Parameters<T>) => void;
+
 const Header: React.FC<HeaderProps> = ({ handleScrollTo }) => {
     const [scrollY, setScrollY] = useState<number>(0);
     const [headerState, setHeaderState] = useState<ScrollState>({
@@ -43,14 +52,20 @@ const Header: React.FC<HeaderProps> = ({ handleScrollTo }) => {
             });
         };
 
-        const throttle = (func: Function, limit: number) => {
-            let inThrottle: boolean;
-            return function(this: any, ...args: any[]) {
-                const context = this;
+        // Properly typed throttle function
+        const throttle = <T extends ThrottleableFunction>(
+            func: T,
+            limit: number
+        ): ThrottledFunction<T> => {
+            let inThrottle = false;
+            
+            return (...args: Parameters<T>): void => {
                 if (!inThrottle) {
-                    func.apply(context, args);
+                    func(...args);
                     inThrottle = true;
-                    setTimeout(() => inThrottle = false, limit);
+                    setTimeout(() => {
+                        inThrottle = false;
+                    }, limit);
                 }
             };
         };
