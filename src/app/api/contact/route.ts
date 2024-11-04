@@ -66,7 +66,7 @@ export async function POST(req: NextRequest) {
             from: "Acme <onboarding@resend.dev>",
             to: ["gpampa138@gmail.com"],
             cc: ["parambrataghosh26@gmail.com"],
-            subject: "Hello world",
+            subject: "Request for service",
             react: EmailTemplate({
                 firstName: formData.name,
                 email: formData.email,
