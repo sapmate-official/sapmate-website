@@ -47,39 +47,51 @@ const Contact = () => {
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         setLoading(true);
-
+        
         try {
             const response = await fetch("/api/contact", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(formData),
             });
-
+            
             const data = await response.json();
-
-            if (!response.ok)
-                throw new Error(data.error || "Failed to send message");
-
+            
+            if (!response.ok) {
+                if (response.status === 409) {
+                    toast({
+                        title: "Already Submitted",
+                        description: data.message,
+                        duration: 5000,
+                    });
+                    return;
+                }
+                throw new Error(data.message || "Failed to send message");
+            }
+            
             setSubmitted(true);
             toast({
                 title: "Message Sent!",
-                description: "We'll get back to you soon.",
+                description: data.message,
                 duration: 5000,
             });
-
+            
             setTimeout(() => {
                 setFormData({ name: "", email: "", phone: "", message: "" });
                 setSubmitted(false);
             }, 2000);
-        } catch (error: { message: string } | unknown) {
-            console.log(error);
-            toast({
-                title: "Error",
-                description:
-                    "Failed to send message, Try with contact information given beside.",
-                variant: "destructive",
-                duration: 5000,
-            });
+            
+        } catch (error) {
+            console.error("Form submission error:", error);
+            
+            if (error instanceof Error) {
+                toast({
+                    title: "Error",
+                    description: error.message || "Failed to send message. Please try using the contact information provided.",
+                    variant: "destructive",
+                    duration: 5000,
+                });
+            }
         } finally {
             setLoading(false);
         }
