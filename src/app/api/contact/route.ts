@@ -50,7 +50,7 @@ export async function POST(req: NextRequest) {
         }
 
         // Only send email if user save was successful
-        const { data, error } = await resend.emails.send({
+        const {  error } = await resend.emails.send({
             from: "Param@sapmate.com",
             to: ["kabir.khan@sapmate.com"],
             cc: ["sadaf.salam@sapmate.com"],
