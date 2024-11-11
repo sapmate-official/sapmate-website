@@ -1,7 +1,7 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import WhatsAppButton from "@/components/WhatsappButton";
+import WhatsAppButton from "@/components/section/WhatsappButton";
 
 interface HeaderProps {
     handleScrollTo: (elementId: string) => void;

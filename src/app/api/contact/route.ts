@@ -3,7 +3,7 @@ import { z } from "zod";
 import User from "@/models/User";
 import connectToDatabase from "@/lib/mongoose";
 import { Resend } from "resend";
-import { EmailTemplate } from "@/components/Emailtemplate";
+import { EmailTemplate } from "@/components/section/Emailtemplate";
 
 interface MongoDBError extends Error {
     code?: number;
