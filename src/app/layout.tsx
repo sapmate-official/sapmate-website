@@ -16,7 +16,7 @@ const geistMono = localFont({
 
 export const metadata: Metadata = {
   title: "Sapmate",
-  description: "Sapmate provided courses on sap cpi and sap successfactors/",
+  description: "Sapmate provided courses on sap cpi and sap successfactors.",
 };
 
 export default function RootLayout({
@@ -26,6 +26,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <title>Sapmate</title>
+        <meta name="description" content="Sapmate provided courses on sap cpi and sap successfactors." />
+        <link rel="canonical" href="https://www.sapmate.com/" />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
