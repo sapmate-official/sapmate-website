@@ -1,3 +1,4 @@
+'use client';
 import React, { useState } from "react";
 import {
     Mail,
@@ -10,6 +11,8 @@ import {
 import { motion, AnimatePresence } from "framer-motion";
 import { useToast } from "@/hooks/use-toast";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
+import { useAtom } from "jotai";
 
 type ContactForm = {
     [key: string]: string;
@@ -30,6 +33,7 @@ const Contact = () => {
         phone: "",
         message: "",
     });
+    const [customeratom,setCustomerAtom] = useAtom(custo)
 
     const handleChange = (
         e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -40,7 +44,7 @@ const Contact = () => {
             [name]: value,
         }));
     };
-
+    const router = useRouter();
     const handleFocus = (field: string) => setActiveField(field);
     const handleBlur = () => setActiveField(null);
 
@@ -75,11 +79,14 @@ const Contact = () => {
                 description: data.message,
                 duration: 5000,
             });
+
+
             
             setTimeout(() => {
                 setFormData({ name: "", email: "", phone: "", message: "" });
                 setSubmitted(false);
             }, 2000);
+            router.push("/thank_you");
             
         } catch (error) {
             console.error("Form submission error:", error);
