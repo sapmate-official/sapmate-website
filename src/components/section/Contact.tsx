@@ -12,7 +12,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useToast } from "@/hooks/use-toast";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import { useAtom } from "jotai";
+// import { useAtom } from "jotai";
 
 type ContactForm = {
     [key: string]: string;
