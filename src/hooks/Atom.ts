@@ -1,6 +1,6 @@
-// import { atom, Atom } from "jotai";
-// export const customeratom = atom({
-//     name: "",
-//     email: "",
-//     phone: "",
-// })
+import { atom } from "jotai";
+export const customeratom = atom({
+    name: "",
+    email: "",
+    phone: "",
+})

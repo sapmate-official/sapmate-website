@@ -12,6 +12,8 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useToast } from "@/hooks/use-toast";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
+import { customeratom } from "@/hooks/Atom";
+import { useAtom } from "jotai";
 // import { useAtom } from "jotai";
 
 type ContactForm = {
@@ -33,7 +35,7 @@ const Contact = () => {
         phone: "",
         message: "",
     });
-    // const [customeratom,setCustomerAtom] = useAtom(custo)
+    const [,setCustomerAtom] = useAtom(customeratom)
 
     const handleChange = (
         e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -80,7 +82,11 @@ const Contact = () => {
                 duration: 5000,
             });
 
-
+            setCustomerAtom({
+                name: formData.name,
+                email: formData.email,
+                phone: formData.phone
+            })
             
             setTimeout(() => {
                 setFormData({ name: "", email: "", phone: "", message: "" });
