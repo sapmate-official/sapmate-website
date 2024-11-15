@@ -33,7 +33,7 @@ const Contact = () => {
         phone: "",
         message: "",
     });
-    const [customeratom,setCustomerAtom] = useAtom(custo)
+    // const [customeratom,setCustomerAtom] = useAtom(custo)
 
     const handleChange = (
         e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
