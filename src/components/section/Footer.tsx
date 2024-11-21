@@ -17,6 +17,11 @@ const Footer = () => {
                             <br />
                             Dubai, UAE
                         </address>
+                        <address className="text-blue-100 mt-4 not-italic">
+                        Noida one sec 62
+                            <br />
+                            Noida Uttar pradesh-201309
+                        </address>
                     </div>
                     <div className="text-right">
                         <p className="text-blue-100">

@@ -60,6 +60,7 @@ export default function RootLayout({
                 </noscript>
 
                 {children}
+                
                 <Toaster />
             </body>
         </html>

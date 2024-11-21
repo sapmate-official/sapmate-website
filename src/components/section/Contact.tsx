@@ -11,10 +11,9 @@ import {
 import { motion, AnimatePresence } from "framer-motion";
 import { useToast } from "@/hooks/use-toast";
 import Image from "next/image";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { customeratom } from "@/hooks/Atom";
 import { useAtom } from "jotai";
-// import { useAtom } from "jotai";
 
 type ContactForm = {
     [key: string]: string;
@@ -35,7 +34,9 @@ const Contact = () => {
         phone: "",
         message: "",
     });
-    const [,setCustomerAtom] = useAtom(customeratom)
+    const [,setCustomerAtom] = useAtom(customeratom);
+    const router = useRouter();
+    const pathname = usePathname();
 
     const handleChange = (
         e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -46,7 +47,7 @@ const Contact = () => {
             [name]: value,
         }));
     };
-    const router = useRouter();
+
     const handleFocus = (field: string) => setActiveField(field);
     const handleBlur = () => setActiveField(null);
 
@@ -86,7 +87,7 @@ const Contact = () => {
                 name: formData.name,
                 email: formData.email,
                 phone: formData.phone
-            })
+            });
             
             setTimeout(() => {
                 setFormData({ name: "", email: "", phone: "", message: "" });
@@ -162,49 +163,51 @@ const Contact = () => {
             className="py-20 bg-gradient-to-br from-white to-blue-50"
         >
             <div className="container mx-auto px-6">
-                <h2 className="text-4xl font-bold text-center mb-16 text-gray-800">
+                {pathname!=='/contact-us'&&<h2 className="text-4xl font-bold text-center mb-16 text-gray-800">
                     Let&apos;s Connect
-                </h2>
-                <div className="grid md:grid-cols-2 gap-16 max-w-5xl mx-auto">
-                    {/* Contact Info Cards */}
-                    <motion.div
-                        initial={{ x: -50, opacity: 0 }}
-                        whileInView={{ x: 0, opacity: 1 }}
-                        transition={{ duration: 0.8 }}
-                        className="space-y-8"
-                    >
-                        {contactCards.map((item, index) => (
-                            <motion.div
-                                key={index}
-                                whileHover={{ scale: 1.02, y: -5 }}
-                                className="relative overflow-hidden group rounded-xl shadow-lg cursor-pointer"
-                                onClick={item.onClick}
-                            >
-                                <div
-                                    className={`absolute inset-0 bg-gradient-to-r ${item.gradient} opacity-0 group-hover:opacity-100 transition-all duration-300`}
-                                />
-                                <div className="relative p-6 bg-white group-hover:bg-opacity-0 transition-all duration-300">
-                                    <div className="flex items-center relative z-10">
-                                        <div className="mr-4 text-blue-600 group-hover:text-white transition-colors duration-300">
-                                            {item.icon}
-                                        </div>
-                                        <div>
-                                            <h3 className="font-bold text-gray-800 group-hover:text-white transition-colors duration-300">
-                                                {item.title}
-                                            </h3>
-                                            <p className="text-gray-600 group-hover:text-white transition-colors duration-300">
-                                                {item.content}
-                                            </p>
+                </h2>}
+                <div className={`${pathname !== '/contact-us' ? 'grid md:grid-cols-2 gap-16' : ''} max-w-5xl mx-auto`}>
+                    {/* Contact Info Cards - Only show if not on contact-us page */}
+                    {pathname !== '/contact-us' && (
+                        <motion.div
+                            initial={{ x: -50, opacity: 0 }}
+                            whileInView={{ x: 0, opacity: 1 }}
+                            transition={{ duration: 0.8 }}
+                            className="space-y-8"
+                        >
+                            {contactCards.map((item, index) => (
+                                <motion.div
+                                    key={index}
+                                    whileHover={{ scale: 1.02, y: -5 }}
+                                    className="relative overflow-hidden group rounded-xl shadow-lg cursor-pointer"
+                                    onClick={item.onClick}
+                                >
+                                    <div
+                                        className={`absolute inset-0 bg-gradient-to-r ${item.gradient} opacity-0 group-hover:opacity-100 transition-all duration-300`}
+                                    />
+                                    <div className="relative p-6 bg-white group-hover:bg-opacity-0 transition-all duration-300">
+                                        <div className="flex items-center relative z-10">
+                                            <div className="mr-4 text-blue-600 group-hover:text-white transition-colors duration-300">
+                                                {item.icon}
+                                            </div>
+                                            <div>
+                                                <h3 className="font-bold text-gray-800 group-hover:text-white transition-colors duration-300">
+                                                    {item.title}
+                                                </h3>
+                                                <p className="text-gray-600 group-hover:text-white transition-colors duration-300">
+                                                    {item.content}
+                                                </p>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                            </motion.div>
-                        ))}
-                    </motion.div>
+                                </motion.div>
+                            ))}
+                        </motion.div>
+                    )}
 
                     {/* Contact Form */}
                     <motion.div
-                        initial={{ x: 50, opacity: 0 }}
+                        initial={{ x: pathname === '/contact-us' ? 0 : 50, opacity: 0 }}
                         whileInView={{ x: 0, opacity: 1 }}
                         transition={{ duration: 0.8 }}
                         className="relative"
@@ -301,7 +304,7 @@ const Contact = () => {
                                     <motion.button
                                         whileHover={{ scale: 1.02 }}
                                         whileTap={{ scale: 0.98 }}
-                                        className="w-full bg-blue-600 text-white px-8 py-4 rounded-lg hover:bg-blue-700 transition-all duration-300 font-semibold text-lg disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center space-x-2"
+                                        className={pathname!=="/contact-us"?"w-full bg-blue-600 text-white px-8 py-4 rounded-lg hover:bg-blue-700 transition-all duration-300 font-semibold text-lg disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center space-x-2":"w-full bg-blue-900 text-white px-8 py-4 rounded-lg hover:bg-blue-960 transition-all duration-300 font-semibold text-lg disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center space-x-2"}
                                         type="submit"
                                         disabled={loading}
                                     >

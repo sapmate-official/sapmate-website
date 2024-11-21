@@ -10,6 +10,9 @@ import Stats from "@/components/section/Stats";
 import AboutSection from "@/components/section/About";
 import Contact from "@/components/section/Contact";
 import Footer from "@/components/section/Footer";
+import TestimonialWrapper from "@/components/section/TestimonialWrapper";
+import Courses from "@/components/section/Courses";
+import SapmateBot from "@/components/SapmateBot";
 
 export default function Landing() {
     const [scrollY, setScrollY] = useState(0);
@@ -123,16 +126,18 @@ export default function Landing() {
                     <ChevronDown className="text-white w-8 h-8" />
                 </motion.div>
             </div>
-
             
             <Stats />
             {/* About Section */}
             <div id="about" className="py-20 bg-gray-50" data-animate="about">
                 <AboutSection isVisible={isVisible} />
-            </div>
+            </div> 
 
+            <TestimonialWrapper/>
+            <Courses/>
             {/* Contact Form */}
             <Contact />
+            <SapmateBot/>
 
             <Footer/>
         </div>
