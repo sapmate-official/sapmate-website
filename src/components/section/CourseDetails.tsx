@@ -6,6 +6,7 @@ import {
     CheckCircle,
     Clock,
     LucideIcon,
+    ArrowLeft,
 } from "lucide-react";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -292,6 +293,18 @@ const CourseDetails = ({COURSE_CONTENT}:{COURSE_CONTENT:CourseContent}) => {
                 className="relative bg-gradient-to-r from-blue-900 to-indigo-900 py-20 px-4"
             >
                 <div className="max-w-6xl mx-auto">
+                    {/* Back Button */}
+                    <motion.button
+                        initial={{ opacity: 0, x: -20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ delay: 0.1 }}
+                        onClick={() => router.back()}
+                        className="mb-6 inline-flex items-center gap-2 text-white/80 hover:text-white transition-colors"
+                    >
+                        <ArrowLeft className="w-5 h-5" />
+                        <span>Back to Courses</span>
+                    </motion.button>
+
                     <motion.div
                         initial={{ y: 20, opacity: 0 }}
                         animate={{ y: 0, opacity: 1 }}
@@ -335,7 +348,6 @@ const CourseDetails = ({COURSE_CONTENT}:{COURSE_CONTENT:CourseContent}) => {
                             >
                                 Download Brochure
                             </Button>
-                            {/* <SecurePDFDownloader/> */}
                         </div>
                     </motion.div>
                 </div>

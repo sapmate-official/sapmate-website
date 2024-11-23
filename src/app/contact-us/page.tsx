@@ -9,11 +9,14 @@ import {
     Twitter,
     Facebook,
     Instagram,
+    ArrowLeft,
 } from "lucide-react";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import Contact from "@/components/section/Contact";
 import { IconBrandWhatsappFilled } from "@tabler/icons-react";
 import SapmateBot from "@/components/SapmateBot";
+import { Button } from "@/components/ui/button";
+import { useRouter } from "next/navigation";
 
 const ContactPage = () => {
     
@@ -35,7 +38,7 @@ const ContactPage = () => {
         {
             icon: Mail,
             title: "Email Us",
-            details: ["sadaf.salam@sapmate.com", "kabir.khan@sapmate.com"],
+            details: ["sadaf.salam@sapmate.com"],
             onClick: handleEmailClick
         },
         {
@@ -61,10 +64,14 @@ const ContactPage = () => {
         { icon: Facebook, label: "Facebook", href: "#" },
         { icon: Instagram, label: "Instagram", href: "#" },
     ];
+    const router = useRouter();
 
     return (
         <div className="bg-gradient-to-br from-white to-blue-50">
             {/* Hero Section */}
+            <Button variant="outline" onClick={() => router.back()} className="border-b border-2 fixed z-50 top-4 left-4">
+                <ArrowLeft className="h-4 w-4"/>
+            </Button>
             <div className="max-w-6xl mx-auto px-4 pt-12 pb-6">
                 <div className="text-center mb-12 space-y-4">
                     <h1 className="text-4xl font-bold text-blue-900">

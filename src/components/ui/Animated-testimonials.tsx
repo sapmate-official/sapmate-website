@@ -36,7 +36,7 @@ export const AnimatedTestimonials = ({
 
     useEffect(() => {
         if (autoplay) {
-            const interval = setInterval(handleNext, 5000);
+            const interval = setInterval(handleNext, 15000);
             return () => clearInterval(interval);
         }
     }, [autoplay]);
@@ -96,7 +96,7 @@ export const AnimatedTestimonials = ({
                         </AnimatePresence>
                     </div>
                 </div>
-                <div className="flex justify-between flex-col py-4">
+                <div className="flex justify-between items-center flex-col py-4">
                     <motion.div
                         key={active}
                         initial={{
