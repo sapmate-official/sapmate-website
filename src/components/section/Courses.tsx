@@ -136,6 +136,7 @@ const Courses: React.FC = () => {
       duration: "4 weeks",
       students: 800,
       rating: 4.9,
+      tag: "Value for Money",
       highlights: [
         { icon: <Clock className="w-full h-full" />, text: "Intensive mock interview sessions" },
         { icon: <Users className="w-full h-full" />, text: "1-on-1 mentorship program" },
@@ -163,6 +164,7 @@ const Courses: React.FC = () => {
       duration: "8 weeks",
       students: 600,
       rating: 4.6,
+      tag: "Practical Implementation Focus",
       highlights: [
         { icon: <Clock className="w-full h-full" />, text: "Industry-aligned curriculum" },
         { icon: <Users className="w-full h-full" />, text: "Hands-on configuration practice" },

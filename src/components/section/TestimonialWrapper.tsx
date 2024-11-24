@@ -3,28 +3,28 @@ import { AnimatedTestimonials } from "../ui/Animated-testimonials";
 import { motion } from "framer-motion";
 const testimonials = [
     {
-        quote: "The comprehensive SAP training was a game-changer for me. The structured approach and practical insights made me industry-ready in no time.",
+        quote: "The comprehensive SAP training at Sapmate was a game-changer for me. The structured approach and practical insights made me industry-ready in no time, helping me secure a role at Capgemini with a 33 LPA package.",
         name: "Shweta Vats",
-        designation: "SAP Consultant at Capgemini",
+        designation: "SAP CPI Consultant at Capgemini",
         src: "https://res.cloudinary.com/dwxm42izp/image/upload/v1732085518/WhatsApp_Image_2024-11-18_at_21.33.02_dccbf2dd_qdzlby.jpg",
     },
     {
         quote: "This program exceeded my expectations. The balance of theory and hands-on projects ensured I could apply my skills directly at work.",
         name: "Liew Jun Yan",
-        designation: "SAP FICO Specialist",
+        designation: "SAP CPI Consultant",
         src: "https://res.cloudinary.com/diacb8luh/image/upload/v1732391727/jl1qxqpd1x2p2frklxcz.jpg",
     },
     {
         quote: "From day one, the training was designed to address real-world challenges. The expertise of the instructors was evident in every session.",
         name: "Mehboob Azam",
-        designation: "Central Consultant at TCS",
+        designation: "SF Employee Central Consultant at TCS",
         src: "https://res.cloudinary.com/diacb8luh/image/upload/v1732391726/oswyas6mifyxi9oe0ouk.jpg",
     },
     {
         quote: "The personalized attention and expert guidance provided in this program set it apart. It gave me the confidence to take on complex projects.",
         name: "Ankita Singh",
-        designation: "Software Developer",
-        src: "https://res.cloudinary.com/dwxm42izp/image/upload/Ankita_Singh_dtken6.jpg",
+        designation: "SAP CPI Consultant at Accenture",
+        src: "https://res.cloudinary.com/dwxm42izp/image/upload/v1732459627/ta8kk8xeaf7dhm1vit3t.png",
     },
     {
         quote: "Sapmate’s training equipped me with both technical skills and practical knowledge. Landing a role at Deloitte was a dream come true!",
@@ -35,9 +35,21 @@ const testimonials = [
     {
         quote: "The in-depth coverage of SAP tools and technologies was incredible. I feel confident tackling the most complex integrations in my role.",
         name: "Julio Alvarez",
-        designation: "SAP PI PO CPI Consultant at America Movil",
+        designation: "SAP CPI Consultant",
         src: "https://res.cloudinary.com/diacb8luh/image/upload/v1732392941/prhyu0yfrqddzaq6xlcj.jpg",
     },
+    {
+        quote: "Thanks to Sapmate, I secured my dream job at EY as an SAP SuccessFactors Consultant. Their expert guidance and resources were exceptional!",
+        name: "Irina Slobodchikova",
+        designation: "Sap Successfactor Consultant at Ey",
+        src: "https://res.cloudinary.com/dwxm42izp/image/upload/v1732459253/am3if3ewmzonq9apeadt.jpg",
+    },
+    {
+        quote: "This course was instrumental in helping me land my dream job at PwC Kolkata as a Data and Tech Consultant with a 6 LPA package. The practical training and expert guidance made all the difference!",
+        name: "Shah Waqarul Haque",
+        designation: "Dat and Tech Consultant at Pwc Kolkata",
+        src: "https://res.cloudinary.com/dwxm42izp/image/upload/v1732459431/qlg7dug2ee64qxgpktfl.jpg",
+    }
 ];
 
 const TestimonialWrapper = () => {
