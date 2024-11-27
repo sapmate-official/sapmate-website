@@ -9,48 +9,43 @@ const testimonials = [
         src: "https://res.cloudinary.com/dwxm42izp/image/upload/v1732085518/WhatsApp_Image_2024-11-18_at_21.33.02_dccbf2dd_qdzlby.jpg",
     },
     {
-        quote: "This program exceeded my expectations. The balance of theory and hands-on projects ensured I could apply my skills directly at work.",
-        name: "Liew Jun Yan",
-        designation: "SAP CPI Consultant",
-        src: "https://res.cloudinary.com/diacb8luh/image/upload/v1732391727/jl1qxqpd1x2p2frklxcz.jpg",
-    },
-    {
-        quote: "From day one, the training was designed to address real-world challenges. The expertise of the instructors was evident in every session.",
+        quote: "From day one, the training was designed to address real-world challenges. The expertise of the instructors was evident in every session. I landed a role at TCS with a 12 LPA package.",
         name: "Mehboob Azam",
         designation: "SF Employee Central Consultant at TCS",
         src: "https://res.cloudinary.com/diacb8luh/image/upload/v1732391726/oswyas6mifyxi9oe0ouk.jpg",
     },
     {
-        quote: "The personalized attention and expert guidance provided in this program set it apart. It gave me the confidence to take on complex projects.",
+        quote: "The personalized attention and expert guidance provided in this program set it apart. It gave me the confidence to take on complex projects. I am now working at Accenture with a 13 LPA package.",
         name: "Ankita Singh",
         designation: "SAP CPI Consultant at Accenture",
-        src: "https://res.cloudinary.com/dwxm42izp/image/upload/v1732459627/ta8kk8xeaf7dhm1vit3t.png",
+        src: "https://res.cloudinary.com/dwxm42izp/image/upload/v1732683825/y9tlkkynmibqefja97bs.jpg",
     },
     {
-        quote: "Sapmate’s training equipped me with both technical skills and practical knowledge. Landing a role at Deloitte was a dream come true!",
+        quote: "Sapmate’s training equipped me with both technical skills and practical knowledge. Landing a role at Deloitte was a dream come true, with a 14 LPA package!",
         name: "Swatilekha Majumder",
         designation: "SAP Consultant at Deloitte",
         src: "https://res.cloudinary.com/dwxm42izp/image/upload/swatilekha_majumdar_cm3q4u.jpg",
     },
     {
-        quote: "The in-depth coverage of SAP tools and technologies was incredible. I feel confident tackling the most complex integrations in my role.",
+        quote: "The in-depth coverage of SAP tools and technologies was incredible. I feel confident tackling the most complex integrations in my role. I am now working at American Movil with a 15 LPA package.",
         name: "Julio Alvarez",
-        designation: "SAP CPI Consultant",
+        designation: "SAP CPI Consultant in American Movil",
         src: "https://res.cloudinary.com/diacb8luh/image/upload/v1732392941/prhyu0yfrqddzaq6xlcj.jpg",
     },
     {
-        quote: "Thanks to Sapmate, I secured my dream job at EY as an SAP SuccessFactors Consultant. Their expert guidance and resources were exceptional!",
+        quote: "Thanks to Sapmate, I secured my dream job at EY as an SAP SuccessFactors Consultant with a 14 LPA package. Their expert guidance and resources were exceptional!",
         name: "Irina Slobodchikova",
-        designation: "Sap Successfactor Consultant at Ey",
+        designation: "SAP SuccessFactors Consultant at EY",
         src: "https://res.cloudinary.com/dwxm42izp/image/upload/v1732459253/am3if3ewmzonq9apeadt.jpg",
     },
     {
-        quote: "This course was instrumental in helping me land my dream job at PwC Kolkata as a Data and Tech Consultant with a 6 LPA package. The practical training and expert guidance made all the difference!",
+        quote: "This course was instrumental in helping me land my dream job at PwC Kolkata as a Data and Tech Consultant with a 14 LPA package. The practical training and expert guidance made all the difference!",
         name: "Shah Waqarul Haque",
-        designation: "Dat and Tech Consultant at Pwc Kolkata",
+        designation: "Data and Tech Consultant at PwC Kolkata",
         src: "https://res.cloudinary.com/dwxm42izp/image/upload/v1732459431/qlg7dug2ee64qxgpktfl.jpg",
     }
 ];
+
 
 const TestimonialWrapper = () => {
     return (
