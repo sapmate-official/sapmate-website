@@ -19,7 +19,7 @@ const geistMono = localFont({
 
 export const metadata: Metadata = {
     title: "Sapmate",
-    description: "Sapmate provided courses on sap cpi and sap successfactors.",
+    description: "Learn SAP CPI from basics to advanced with practical training & real-time projects. SAPMATE has trained 100+ students with a 99% success rate. SAPMATE - your success starts here",
 };
 
 export default function RootLayout({
@@ -33,7 +33,8 @@ export default function RootLayout({
                 <title>Sapmate</title>
                 <meta
                     name="description"
-                    content="Sapmate provided courses on sap cpi and sap successfactors."
+                    content="Learn SAP CPI from basics to advanced with practical training & real-time projects. SAPMATE has trained 100+ students with a 99% success rate. 
+SAPMATE - your success starts here"
                 />
                 <link rel="canonical" href="https://www.sapmate.com/" />
 

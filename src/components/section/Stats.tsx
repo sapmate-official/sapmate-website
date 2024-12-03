@@ -28,7 +28,7 @@ const BrandedStatsSection = () => {
           const progress = currentStep / steps;
 
           setCounts({
-            students: Math.min(Math.floor(1000 * progress), 1000),
+            students: Math.min(Math.floor(1000 * progress), 100),
             placement: Math.min(Math.floor(92 * progress), 92),
             rating: Number((4.8 * progress).toFixed(1))
           });
