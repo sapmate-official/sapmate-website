@@ -18,7 +18,7 @@ const testimonials = [
         quote: "The personalized attention and expert guidance provided in this program set it apart. It gave me the confidence to take on complex projects. I am now working at Accenture with a 13 LPA package.",
         name: "Ankita Singh",
         designation: "SAP CPI Consultant at Accenture",
-        src: "https://res.cloudinary.com/dwxm42izp/image/upload/v1732683825/y9tlkkynmibqefja97bs.jpg",
+        src: "https://res.cloudinary.com/dwxm42izp/image/upload/v1733346961/kgppqxjzai34qyroy5ow.jpg",
     },
     {
         quote: "Sapmate’s training equipped me with both technical skills and practical knowledge. Landing a role at Deloitte was a dream come true, with a 14 LPA package!",
