@@ -49,12 +49,11 @@ SAPMATE - your success starts here"
          `}
         </Script>
         <Script
-        id="google-ads"
+          id="google-ads"
           async
           src="https://www.googletagmanager.com/gtag/js?id=AW-16669063299"
         ></Script>
-        <Script 
-        id="google-ads-config">
+        <Script id="google-ads-config">
           {`
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
@@ -63,6 +62,18 @@ SAPMATE - your success starts here"
     gtag('config', 'AW-16669063299');
   `}
         </Script>
+        <script
+          id="google-ads-config-2"
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=AW-11493144063"
+        ></script>
+        <script id="google-ads-config-3">
+          {` window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'AW-11493144063');`}
+        </script>
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
