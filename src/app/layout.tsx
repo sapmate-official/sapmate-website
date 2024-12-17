@@ -35,7 +35,7 @@ export default function RootLayout({
         <meta
           name="description"
           content="Learn SAP CPI from basics to advanced with practical training & real-time projects. SAPMATE has trained 100+ students with a 99% success rate. 
-SAPMATE - your success starts here"
+    SAPMATE - your success starts here"
         />
         <link rel="canonical" href="https://www.sapmate.com/" />
 
@@ -49,28 +49,41 @@ SAPMATE - your success starts here"
          `}
         </Script>
         <Script
-        id="google-ads"
+          id="google-ads"
           async
           src="https://www.googletagmanager.com/gtag/js?id=AW-16669063299"
         ></Script>
-        <Script 
-        id="google-ads-config">
+        <Script id="google-ads-config">
           {`
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
 
-    gtag('config', 'AW-16669063299');
-  `}
+        gtag('config', 'AW-16669063299');
+      `}
         </Script>
         <Script async src="https://www.googletagmanager.com/gtag/js?id=G-CHFFVWGDRX"></Script>
         <Script id="google-analytics">
           {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
 
-            gtag('config', 'G-CHFFVWGDRX');
+        gtag('config', 'G-CHFFVWGDRX');
+          `}
+        </Script>
+        <Script
+          id="google-ads-config-2"
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=AW-11493144063"
+        ></Script>
+        <Script id="google-ads-config-3">
+          {` 
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'AW-11493144063');
           `}
         </Script>
       </head>
