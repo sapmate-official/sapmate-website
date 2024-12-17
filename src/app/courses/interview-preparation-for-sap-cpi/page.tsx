@@ -11,6 +11,7 @@ import {
     TrendingUp,
 } from "lucide-react";
 import CourseDetails from "@/components/section/CourseDetails";
+// import CourseDetails2 from "@/components/section/CourseDetails2";
 
 // Data constants moved outside component for better performance
 const COURSE_CONTENT = {
@@ -138,6 +139,7 @@ const page = () => {
     return (
         <>
             <CourseDetails COURSE_CONTENT={COURSE_CONTENT} />
+            {/* <CourseDetails2  /> */}
         </>
     );
 };
