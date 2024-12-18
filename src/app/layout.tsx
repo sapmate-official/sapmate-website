@@ -18,14 +18,34 @@ const geistMono = localFont({
   weight: "100 900",
 });
 
+
 export const metadata: Metadata = {
-  title: "Sapmate",
-  description:
-    "Learn SAP CPI from basics to advanced with practical training & real-time projects. SAPMATE has trained 100+ students with a 99% success rate. SAPMATE - your success starts here",
-    alternates: {
-      canonical: 'https://www.sapmate.com',
-    },
-};
+  title: {
+    default: 'Sapmate - SAP Training Institute',
+    template: '%s | Sapmate'
+  },
+  description: 'Learn SAP CPI from basics to advanced with practical training & real-time projects. SAPMATE has trained 100+ students with a 99% success rate.',
+  openGraph: {
+    type: 'website',
+    locale: 'en_US',
+    url: 'https://www.sapmate.com',
+    siteName: 'Sapmate',
+    title: 'Sapmate - SAP Training Institute',
+    description: 'Learn SAP CPI from basics to advanced with practical training & real-time projects.',
+    images: [{
+      url: 'https://www.sapmate.com/api/og',
+      width: 1200,
+      height: 630,
+      alt: 'Sapmate SAP Training',
+    }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Sapmate - SAP Training Institute',
+    description: 'Learn SAP CPI from basics to advanced with practical training & real-time projects.',
+    images: ['https://www.sapmate.com/api/og'],
+  },
+}
 
 export default function RootLayout({
   children,

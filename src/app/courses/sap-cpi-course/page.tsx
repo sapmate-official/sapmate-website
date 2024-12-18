@@ -1,89 +1,44 @@
-'use client'
-import React from "react";
-import { CourseOverview } from "./CourseOverview";
-import { CourseCurriculum } from "./CourseCurriculum";
-import { InstructorProfile } from "./InstructorProfile";
-import { StudentTestimonials } from "./StudentTestimonial";
-import { CourseRequirements } from "./CourseRequirements";
-import { CourseComparison } from "./CourseComparison";
-import { PricingSection } from "./PricingSection";
-import { ScheduleSection } from "./ScheduleSection";
-import { FAQSection } from "./FAQsection";
-import Footer from "@/components/section/Footer";
-import HeroSection from "./HeroSection";
-import Navbar from "./Navbar";
-import Link from "next/link";
+import React from 'react'
+import ClientPage from './ClientPage'
+// app/courses/[slug]/page.tsx
+import type { Metadata } from 'next';
+
+// Generate metadata for each course page
+export async function generateMetadata(
+): Promise<Metadata> {
+  // You can fetch course data here if needed
+const courseTitle = "SAP CPI Training - Comprehensive Guide to Cloud Platform Integration"; 
+const courseDescription = "Learn SAP Cloud Platform Integration (CPI) with our comprehensive training course. Master integration processes, techniques, and best practices.";
+
+  return {
+    title: courseTitle,
+    description: courseDescription,
+    openGraph: {
+      title: courseTitle,
+      description: courseDescription,
+      images: [{
+        url: `/api/og?title=${encodeURIComponent(courseTitle)}&description=${encodeURIComponent(courseDescription)}`,
+        width: 1200,
+        height: 630,
+        alt: courseTitle,
+      }],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: courseTitle,
+      description: courseDescription,
+      images: [`/api/og?title=${encodeURIComponent(courseTitle)}&description=${encodeURIComponent(courseDescription)}`],
+    },
+  };
+}
 
 const page = () => {
-    return (
-        <div className="min-h-screen bg-white">
-            {/* Navigation - Consider adding sticky nav */}
-            <Navbar/>
+    generateMetadata();
+  return (
+    <>
+    <ClientPage/>
+    </>
+  )
+}
 
-            {/* Main Content */}
-            <main className="pt-16">
-                {/* Hero Section */}
-                <section id="hero">
-                    <HeroSection />
-                </section>
-
-                {/* Course Overview */}
-                <section id="overview">
-                    <CourseOverview />
-                </section>
-
-                {/* Course Curriculum */}
-                <section id="curriculum" className="bg-gray-50">
-                    <CourseCurriculum />
-                </section>
-
-                {/* Instructor Profile */}
-                <section id="instructor">
-                    <InstructorProfile />
-                </section>
-
-                {/* Student Testimonials */}
-                <section id="testimonials" className="bg-gray-50">
-                    <StudentTestimonials />
-                </section>
-
-                {/* Course Requirements */}
-                <section id="requirements">
-                    <CourseRequirements />
-                </section>
-
-                {/* Course Comparison */}
-                <section id="comparison" className="bg-gray-50">
-                    <CourseComparison />
-                </section>
-
-                {/* Pricing Section */}
-                <section id="pricing">
-                    <PricingSection />
-                </section>
-
-                {/* Schedule Section */}
-                <section id="schedule" className="bg-gray-50">
-                    <ScheduleSection />
-                </section>
-
-                {/* FAQ Section */}
-                <section id="faq">
-                    <FAQSection />
-                </section>
-            </main>
-
-            {/* Footer */}
-            <Footer/>
-
-            {/* Floating CTA */}
-            <div className="fixed bottom-4 right-4 z-50">
-                <Link href={"/contact-us"} className="bg-blue-600 text-white px-6 py-3 rounded-lg shadow-lg hover:bg-blue-700 transition-colors">
-                    Book Free Demo
-                </Link>
-            </div>  
-        </div>
-    );
-};
-
-export default page;
+export default page

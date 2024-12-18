@@ -30,9 +30,9 @@ const Navbar = () => {
             <div className="max-w-7xl mx-auto px-4">
                 <div className="flex justify-between items-center h-16">
                     {/* Logo */}
-                    <a href="#" className="font-bold text-xl text-blue-600">
+                    <Link href="/" className="font-bold text-xl text-blue-600">
                         SAPMATE
-                    </a>
+                    </Link>
 
                     {/* Desktop Navigation */}
                     <div className="hidden md:flex items-center gap-6">
