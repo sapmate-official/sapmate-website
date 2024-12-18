@@ -51,7 +51,7 @@ const ContactPage = () => {
                 "+91 9830334496",
                 "+91 6205982706",
             ],
-            onclick: handlePhoneClick
+            onClick: handlePhoneClick // Changed from 'onclick' to 'onClick'
         },
         {
             icon: Clock,
@@ -65,7 +65,7 @@ const ContactPage = () => {
     const socialLinks = [
         { icon: Linkedin, label: "LinkedIn", href: "https://www.linkedin.com/company/sapmate" },
         { icon: Twitter, label: "Twitter", href: "#" },
-        { icon: Facebook, label: "Facebook", href: "#" },
+        { icon: Facebook, label: "Facebook", href: "https://www.facebook.com/profile.php?id=61570600382342&mibextid=ZbWKwL" },
         { icon: Instagram, label: "Instagram", href: "#" },
     ];
     const router = useRouter();
