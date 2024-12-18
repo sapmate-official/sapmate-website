@@ -10,6 +10,7 @@ import {
     Facebook,
     Instagram,
     ArrowLeft,
+    Phone,
 } from "lucide-react";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import Contact from "@/components/section/Contact";
@@ -27,6 +28,9 @@ const ContactPage = () => {
     const handleWhatsAppClick = () => {
         window.location.href = "https://wa.me/919830334496";
     };
+    const handlePhoneClick = () => {
+        window.location.href = "tel:+919830334496";
+    };
 
     const contactInfo = [
         {
@@ -42,12 +46,13 @@ const ContactPage = () => {
             onClick: handleEmailClick
         },
         {
-            icon: MapPin,
-            title: "Visit Us",
+            icon: Phone,
+            title: "Call Us",
             details: [
-                "Dubai Internet City. DIC Building 4,Shaikh Zayed Road,Dubai",
-                "Noida one sec 62 Noida Uttar Pradesh, PIN 201309",
+                "+91 9830334496",
+                "+91 6205982706",
             ],
+            onclick: handlePhoneClick
         },
         {
             icon: Clock,

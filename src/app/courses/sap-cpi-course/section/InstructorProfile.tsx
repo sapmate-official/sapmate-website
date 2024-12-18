@@ -84,7 +84,7 @@ const InstructorProfile = () => {
                       </div>
                     </div>
                     <h2 className="text-2xl font-bold text-gray-900">
-                      Kabir Khan
+                    Instructor
                     </h2>
                     <p className="text-gray-600">
                       SAP Integration Expert & Lead Architect
