@@ -4,6 +4,7 @@ import localFont from "next/font/local";
 import Script from "next/script";
 import "./globals.css";
 import { Toaster } from "@/components/ui/toaster";
+import CanonicalUrl from "@/components/CannonicalUrl";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -21,6 +22,9 @@ export const metadata: Metadata = {
   title: "Sapmate",
   description:
     "Learn SAP CPI from basics to advanced with practical training & real-time projects. SAPMATE has trained 100+ students with a 99% success rate. SAPMATE - your success starts here",
+    alternates: {
+      canonical: 'https://www.sapmate.com',
+    },
 };
 
 export default function RootLayout({
@@ -37,7 +41,7 @@ export default function RootLayout({
           content="Learn SAP CPI from basics to advanced with practical training & real-time projects. SAPMATE has trained 100+ students with a 99% success rate. 
     SAPMATE - your success starts here"
         />
-        <link rel="canonical" href="https://www.sapmate.com/" />
+        <CanonicalUrl />
 
         <Script id="google-tag-manager" strategy="afterInteractive">
           {`
