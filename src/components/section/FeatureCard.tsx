@@ -62,7 +62,7 @@ const FeaturesGrid = () => {
         "My first Integration scenario",
         "Groovy Script"
       ],
-      links: [{ text: "More", href: "https://asapcpitraining.com/sap-cpi-course" }]
+      links: [{ text: "More", href: "#courses" }]
     },
     {
       icon: Send,
@@ -71,7 +71,7 @@ const FeaturesGrid = () => {
         "Get our free e-book",
         "Register to get latest updates"
       ],
-      links: [{ text: "Free e-book", href: "https://asapcpitraining.com/sap-cpi-free-ebook" }]
+      links: [{ text: "Free e-book", href: "https://help.sap.com/doc/5cf436b15a914f74a09a4e3214287412/2305/en-US/loiofa241a550f343e6ae10000000a44176d_00046439.pdf" }]
     },
     {
       icon: HelpCircle,
@@ -82,8 +82,8 @@ const FeaturesGrid = () => {
         "Request a call back at your preferred time"
       ],
       links: [
-        { text: "WhatsApp", href: "https://api.whatsapp.com/send?phone=919991375670&text=Hello!%20SAP%20CPI%20Training" },
-        { text: "FAQ", href: "https://asapcpitraining.com/faq" }
+        { text: "WhatsApp", href: "https://wa.me/919830334496" },
+        { text: "FAQ", href: "#contact" }
       ]
     },
     {
@@ -94,7 +94,7 @@ const FeaturesGrid = () => {
         "Certified & 14+ years' experience trainers",
         "Free demo before you sign up for the course"
       ],
-      links: [{ text: "Why us", href: "https://asapcpitraining.com/why-us" }]
+      links: [{ text: "Why us", href: "/courses/sap-cpi-course" }]
     }
   ];
 
