@@ -128,7 +128,7 @@ const Courses: React.FC = () => {
         { icon: <Users className="w-full h-full" />, text: "Live project experience with industry experts" },
         { icon: <Trophy className="w-full h-full" />, text: "Guaranteed job placement assistance" }
       ],
-      routerpath:"/courses/sap-cpi-with-sap-successfactors-job-ready-program"
+      routerpath:"/courses/sap-cpi-course"
     },
     {
       title: "Interview Preparation for SAP CPI",
@@ -142,7 +142,7 @@ const Courses: React.FC = () => {
         { icon: <Users className="w-full h-full" />, text: "1-on-1 mentorship program" },
         { icon: <Trophy className="w-full h-full" />, text: "Interview success blueprint" }
       ],
-      routerpath:"/courses/interview-preparation-for-sap-cpi"
+      routerpath:"/courses/sap-cpi-course"
     },
     {
       title: "SAP SuccessFactors Employee Central",
