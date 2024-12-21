@@ -61,7 +61,7 @@ const BlogCard = ({ post }: { post: BlogPost }) => (
           rel="noopener noreferrer"
           className="inline-flex items-center text-blue-600 hover:text-blue-700 font-medium"
         >
-          Read More
+          Expand
           <ArrowRight className="w-4 h-4 ml-1" />
         </a>
       </div>
