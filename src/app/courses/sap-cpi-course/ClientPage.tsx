@@ -38,9 +38,9 @@ const ClientPage = () => {
                 </section>
 
                 {/* Instructor Profile */}
-                <section id="instructor">
+                {/* <section id="instructor">
                     <InstructorProfile />
-                </section>
+                </section> */}
 
                 {/* Student Testimonials */}
                 <section id="testimonials" className="bg-gray-50">
