@@ -17,7 +17,7 @@ const PricingSection = () => {
   const plans = [
     {
       name: 'Basic',
-      price: '₹49,999',
+      price: '₹8,999',
       priceId: 'price_basic',
       description: 'Essential SAP CPI training with core features',
       features: [
@@ -33,7 +33,7 @@ const PricingSection = () => {
     },
     {
       name: 'Professional',
-      price: '₹69,999',
+      price: '₹34,999',
       priceId: 'price_pro',
       description: 'Complete training with placement support',
       features: [
@@ -51,7 +51,7 @@ const PricingSection = () => {
     },
     {
       name: 'Enterprise',
-      price: '₹89,999',
+      price: '₹49,999',
       priceId: 'price_enterprise',
       description: 'Premium training with job guarantee',
       features: [
