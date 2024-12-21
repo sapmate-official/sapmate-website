@@ -72,28 +72,28 @@ const BlogCard = ({ post }: { post: BlogPost }) => (
 const NewsSection = () => {
   const blogPosts = [
     {
-      title: "What is SAP BTP Integration suite? CPI | API Management | Open Connectors",
-      excerpt: "Discover how SAP BTP Integration suite provides comprehensive integration capabilities including Cloud Platform Integration, API Management, and more.",
-      image: "https://res.cloudinary.com/dwxm42izp/image/upload/v1730538183/ulove1t1e6szhyrwasdr.jpg",
-      date: "April 2024",
+      title: "Cloud Innovations for Smart Contracts from SAP and Partners on SAP Store",
+      excerpt: "Increasing trust among the many stakeholders involved in a transaction is imperative in business today given the ever-present vigilance required for data security. ",
+      image: "https://storefront-api.p1.store.net.sap/medias/273363-273363-h-ergb-s-gl-500.jpg?context=bWFzdGVyfGltYWdlc3w1OTAxMTJ8aW1hZ2UvanBlZ3xhREU1TDJobFpTODVOREkxTmprM05qQXpOakUwTHpJM016TTJNMTh5TnpNek5qTmZhRjlsY21kaVgzTmZaMnhmTlRBd0xtcHdad3wzNGVkOGUzOGVlMjcwZjBjM2QzNzA4NmQyOWM2YmUwYmVjZjljMTNmYjU3N2FhNjI3NjRmNWNjYzE0OTRiOTEx",
+      date: "February 7, 2024",
       readingTime: "8",
-      link: "https://asapcpitraining.com/what-is-sap-btp-integration-suite-cpi-api-management-open-connectors-integration-advisor/"
+      link: "https://store.sap.com/dcp/en/news-blogs/blogs/cloud-innovations-for-smart-contracts-from-sap-and-partners-on-sap-store"
     },
     {
-      title: "What is CDS | Core Data Services in SAP?",
-      excerpt: "Learn about CDS views, the new programming and data model of SAP, offering enhanced features compared to traditional ABAP dictionary views.",
-      image: "https://asapcpitraining.com/wp-content/uploads/2024/04/SAP-CDS.jpg",
-      date: "April 2024",
+      title: "Cloud Innovations for Spend Analytics from SAP and Partners on SAP Store",
+      excerpt: "Anyone who has ever had to manage a budget and faced rising costs has experienced the typical reaction: spend less. That’s logical – but not so simple for large enterprises,",
+      image: "https://storefront-api.p1.store.net.sap/medias/296603-GettyImages-1338373325-medium-jpg.jpg?context=bWFzdGVyfGltYWdlc3wzMDQ1OTV8aW1hZ2UvanBlZ3xhRFZsTDJoaFpDODVOREkwTXpJeE1UZ3pOemMwTHpJNU5qWXdNMTlIWlhSMGVVbHRZV2RsY3kweE16TTRNemN6TXpJMVgyMWxaR2wxYlY5cWNHY3VhbkJufDI3YjU0N2JmMjM0YWYxYWNiY2Q2ODViYjA0YmM3NjgzMmM2YjIwNTJkMGFhZmRhNDYzYTRjZTQzMjc4YWEzN2E",
+      date: "December 8, 2023",
       readingTime: "6",
-      link: "https://asapcpitraining.com/what-is-cds-core-data-services-in-sap/"
+      link: "https://store.sap.com/dcp/en/news-blogs/blogs/cloud-innovations-for-spend-analytics-from-sap-and-partners-on-sap-store"
     },
     {
-      title: "SAP BTP – Business Technology Platform – Part 1",
-      excerpt: "Explore SAP BTP's comprehensive suite of tools and services for analytics, data management, application development, and integration.",
-      image: "https://asapcpitraining.com/wp-content/uploads/2024/04/what-is-sap-btp-business-technol.jpg",
-      date: "April 2024",
+      title: "Achieving Finance Transformation with Serrala FS2 Solutions on SAP Store",
+      excerpt: "I love speaking with SAP partners about their visions of the future. How about this one: a day when finance professionals will be able to see everything and do everything necessary to manage working capital,",
+      image: "https://storefront-api.p1.store.net.sap/medias/298073-GettyImages-1409751960-medium-jpg-1-.jpg?context=bWFzdGVyfGltYWdlc3wyNzc2NjJ8aW1hZ2UvanBlZ3xhR1UzTDJobFlTODVOREl6TlRjME5UazNOall5THpJNU9EQTNNMTlIWlhSMGVVbHRZV2RsY3kweE5EQTVOelV4T1RZd1gyMWxaR2wxYlY5cWNHY2dLREVwTG1wd1p3fGQxYmUzNTRkZDE1NmY5ZWY5ZDk0Y2QyZTFiNWNkY2NiYmM5YTVkMWYyOGQwMTNlNDJlYTJkYWY2YmM5ZDNkNTk",
+      date: "November 15, 2023",
       readingTime: "7",
-      link: "https://asapcpitraining.com/what-is-sap-btp-business-technology-platform-part-1/"
+      link: "https://store.sap.com/dcp/en/news-blogs/blogs/achieving-finance-transformation-with-serrala-fs2-solutions-on-sap-store"
     }
   ];
 
