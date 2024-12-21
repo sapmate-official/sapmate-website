@@ -2,7 +2,7 @@
 import React from "react";
 import { CourseOverview } from "./section/CourseOverview";
 import { CourseCurriculum } from "./section/CourseCurriculum";
-import { InstructorProfile } from "./section/InstructorProfile";
+// import { InstructorProfile } from "./section/InstructorProfile";
 import { StudentTestimonials } from "./section/StudentTestimonial";
 import { CourseRequirements } from "./section/CourseRequirements";
 import { CourseComparison } from "./section/CourseComparison";
