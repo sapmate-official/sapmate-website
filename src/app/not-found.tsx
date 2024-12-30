@@ -18,7 +18,7 @@ const Custom404 = () => {
         <div className="space-y-2">
           <h2 className="text-3xl font-semibold text-gray-800">Page Not Found</h2>
           <p className="text-gray-600 max-w-sm mx-auto">
-            Oops! The page you`&apos;re looking for doesn`&apos;t exist or has been moved.
+            Oops! The page you&apos;re looking for doesn&apos;t exist or has been moved.
           </p>
         </div>
 
