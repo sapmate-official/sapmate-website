@@ -6,7 +6,7 @@ const VideoTestimonialSection = () => {
     const [isPlaying, setIsPlaying] = React.useState(false);
 
     const testimonialData = {
-        studentName: "John Smith",
+        studentName: "Mohan Kumar",
         role: "SAP Consultant",
         company: "Tech Solutions Inc.",
         thumbnailUrl:
