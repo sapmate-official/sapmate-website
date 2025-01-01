@@ -18,7 +18,7 @@ const testimonials = [
         quote: "The personalized attention and expert guidance provided in this program set it apart. It gave me the confidence to take on complex projects. I am now working at Accenture with a 13 LPA package.",
         name: "Beauty Kumari",
         designation: "SAP CPI Consultant at Capgemini",
-        src: "https://res.cloudinary.com/dwxm42izp/image/upload/v1735735727/hai7iyotouayihxtrf9e.jpg",
+        src: "https://res.cloudinary.com/dwxm42izp/image/upload/v1735736208/huvjxxfmgu1bnkk9yhao.jpg",
     },
     {
         quote: "Sapmate’s training equipped me with both technical skills and practical knowledge. Landing a role at Deloitte was a dream come true, with a 14 LPA package!",
