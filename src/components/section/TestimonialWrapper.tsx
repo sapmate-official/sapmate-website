@@ -15,7 +15,7 @@ const testimonials = [
         src: "https://res.cloudinary.com/diacb8luh/image/upload/v1732391726/oswyas6mifyxi9oe0ouk.jpg",
     },
     {
-        quote: "The personalized attention and expert guidance provided in this program set it apart. It gave me the confidence to take on complex projects. I am now working at Accenture with a 13 LPA package.",
+        quote: "The personalized attention and expert guidance provided in this program set it apart. It gave me the confidence to take on complex projects. I am now working at Capgemini with a 9 LPA package.",
         name: "Beauty Kumari",
         designation: "SAP CPI Consultant at Capgemini",
         src: "https://res.cloudinary.com/dwxm42izp/image/upload/v1735736208/huvjxxfmgu1bnkk9yhao.jpg",

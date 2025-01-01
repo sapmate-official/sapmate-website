@@ -50,16 +50,16 @@ const StudentTestimonials = () => {
     },
     {
       id: 3,
-      name: "Ankita Singh",
+      name: "Beauty Kumari",
       role: "SAP CPI Consultant",
-      company: "Accenture",
+      company: "Capgemini",
       rating: 5,
-      image: "https://res.cloudinary.com/dwxm42izp/image/upload/v1733346961/kgppqxjzai34qyroy5ow.jpg",
-      comment: "The course material was extremely well-structured and the projects helped me understand real-world integration scenarios. The placement support was excellent - now working at Accenture with a 13 LPA package.",
+      image: "https://res.cloudinary.com/dwxm42izp/image/upload/v1735736208/huvjxxfmgu1bnkk9yhao.jpg",
+      comment: "The personalized attention and expert guidance provided in this program set it apart. It gave me the confidence to take on complex projects. I am now working at Capgemini with a 9 LPA package..",
       date: "2 months ago",
       helpful: 42,
-      package: "₹13 LPA",
-      previousRole: "Java Developer",
+      package: "₹9 LPA",
+      previousRole: "Student",
       course: "SAP CPI Complete Course",
       verifiedPurchase: true
     }
